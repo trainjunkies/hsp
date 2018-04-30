@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  hsp:
+    build:
+      context: ./docker/php
+      args:
+        XDEBUG_REMOTE_ENABLE: 'on'
+        XDEBUG_REMOTE_HOST: '10.254.254.254'
+        XDEBUG_REMOTE_PORT: '9000'
+        XDEBUG_REMOTE_AUTOSTART: 'on'
+    working_dir: /var/www
+    env_file: .env
+    volumes:
+        - .:/var/www

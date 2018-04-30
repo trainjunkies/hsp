@@ -1,0 +1,48 @@
+{
+    "name": "trainjunkies/hsp",
+    "description": "National Rail HSP API",
+    "type": "library",
+    "keywords": ["network rail", "trainjunkies", "national rail"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben McManus"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/trainjunkies/hsp/issues"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^3.4",
+        "bossa/phpspec2-expect": "^2.3",
+        "squizlabs/php_codesniffer": "^3.1",
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-0": {
+            "Trainjunkies\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "Tests\\": "integration/"
+        }
+    },
+    "config": {
+         "bin-dir": "bin"
+    },
+    "scripts": {
+        "beautify": "bin/phpcbf --standard=PSR2 src/",
+        "sniff": "bin/phpcs --standard=PSR2 src/",
+        "tests-spec": "bin/phpspec run --format=pretty",
+        "tests-integration": "bin/phpunit",
+        "ci": [
+            "@sniff",
+            "@tests-spec",
+            "@tests-integration"
+        ]
+    }
+}
