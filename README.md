@@ -31,17 +31,14 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
-
 ```
-
-
 
 ### Development / Testing installation
 
 For development you will require your flavour of [Docker][docker] and [Git][git] installed.
 
 ```
-git clone git@github.com:trainjunkies/nre-webservices.git
+git clone git@github.com:trainjunkies/hsp.git
 ```
 
 And in the directory where you'e cloned the project...
@@ -105,8 +102,6 @@ You should now be able to use Xdebug by setting PHPStorm to listen for connectio
 docker-compose run --rm -e PHP_IDE_CONFIG="serverName=trainjunkies_hsp_dev_container" hsp bin/phpspec r spec/Trainjunkies/Hsp/ClientSpec.php 
 ```
 
-
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -128,4 +123,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 [National Rail Datafeeds]: https://datafeeds.nationalrail.co.uk/#/user "National Rail Datafeeds"
 [Git]: https://git-scm.com/downloads	"Git"
 [Docker]: https://www.docker.com/community-edition#/download	"Docker"
-
