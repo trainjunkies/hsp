@@ -1,5 +1,7 @@
 # Trainjunkies - HSP
 
+[![Build Status](https://travis-ci.org/trainjunkies/hsp.svg?branch=master)](https://travis-ci.org/trainjunkies/hsp)
+
 PHP API to consume National Rail Historical Services Performance API.
 
 ## Getting Started
