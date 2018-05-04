@@ -2,13 +2,11 @@
 
 namespace spec\Trainjunkies\Hsp\NationalRail\ApiCalls;
 
-use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\StreamInterface;
+use Trainjunkies\Hsp\Http\Adapter as HttpAdapter;
+use Trainjunkies\Hsp\NationalRail\Authentication;
 use Trainjunkies\Hsp\NationalRail\ApiCalls\ServiceDetails;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Trainjunkies\Hsp\Http\Adapter as HttpAdapter;
-use Trainjunkies\Hsp\NationalRail\Authentication;
 
 class ServiceDetailsSpec extends ObjectBehavior
 {
@@ -16,9 +14,8 @@ class ServiceDetailsSpec extends ObjectBehavior
     const AUTH_USERNAME = 'username';
     const AUTH_PASSWORD = 'Pa$$W0rd';
 
-    function it_is_initializable(
-        HttpAdapter $httpAdapter,
-        Response $response
+    function it_has_service_details_for_a_valid_rid(
+        HttpAdapter $httpAdapter
     ) {
         $authentication = Authentication::fromUsernameAndPassword(
             self::AUTH_USERNAME,
@@ -41,8 +38,7 @@ JSON;
             'json'     => ['rid' => self::RID]
         ];
 
-        $response->getBody()->willReturn($expectedJsonString);
-        $httpAdapter->post('serviceDetails', $expectedHttpOptions)->willReturn($response);
+        $httpAdapter->post('serviceDetails', $expectedHttpOptions)->willReturn($expectedJsonString);
 
         $this->beConstructedWith($httpAdapter, $authentication);
         $this->shouldHaveType(ServiceDetails::class);

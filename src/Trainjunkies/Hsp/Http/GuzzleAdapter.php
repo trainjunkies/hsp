@@ -21,7 +21,7 @@ class GuzzleAdapter implements Adapter
     public function post($uri, $options)
     {
         try {
-            return $this->guzzleHttp->post($uri, $options);
+            return $this->guzzleHttp->post($uri, $options)->getBody();
         } catch (ClientException $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
