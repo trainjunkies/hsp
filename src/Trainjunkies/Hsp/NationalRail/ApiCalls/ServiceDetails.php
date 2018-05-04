@@ -27,9 +27,8 @@ class ServiceDetails
 
     public function getServiceDetailsByRid($rid)
     {
-        /** @var Response $result */
         $result = $this->httpAdapter->post('serviceDetails', $this->httpRequestOptions($rid));
-        return json_decode($result->getBody(), true);
+        return json_decode($result, true);
     }
 
     private function httpRequestOptions($rid)
